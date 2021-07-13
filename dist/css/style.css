@@ -1,0 +1,22 @@
+html{
+    font-size: 12px;
+    background-color: #221717;
+    color: #2e0303;
+    text-align: center !important;
+}
+h1{
+    font-size: 4rem;
+}
+nav{
+    font-size: 2rem;
+}
+#header{
+    background-color: rgb(55, 80, 71);
+    text-align: center !important;
+}
+#task-container{
+    background-color: #a74949;
+    color: #07223a;
+    display: flex;
+    justify-content: center;
+}
