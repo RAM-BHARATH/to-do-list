@@ -1,8 +1,6 @@
-
-let taskId = 3;
-const tasks = [{project:'p',projectId:1,title:'tkfjsfskffkkkfkjfkjkejreajrraerrkjerjkajkrkjrrjar',taskId:0,description:'d',dueDate:1,priority:1,status:1},
-                {project:'default',projectId:0,title:'t1',taskId:1,description:'d',dueDate:1,priority:1,status:1},
-                {project:'default',projectId:0,title:'t2',taskId:2,description:'d',dueDate:1,priority:1,status:0}];
+let taskId = 2;
+const tasks = [{project:'default',projectId:0,title:'t1',taskId:0,description:'d',dueDate:1,priority:1,status:1},
+                {project:'default',projectId:0,title:'t2',taskId:1,description:'d',dueDate:1,priority:1,status:0}];
 function Task (project,projectId,title, description,dueDate,priority,status){
     this.project = project,
     this.projectId = projectId,

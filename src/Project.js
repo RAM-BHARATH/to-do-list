@@ -1,6 +1,6 @@
 const taskLib = require('./Task');
 let currentProjectId = 2;
-const projects = [{project:'default' ,projectId:0},{project:'p' ,projectId:1}];
+const projects = [{project:'default' ,projectId:0}]; //,{project:'p' ,projectId:1}
 
 // currentProjectId++;
 function Project(projectName){
