@@ -1,36 +1,59 @@
 
-let taskId = 0;
-const tasks = [{project:'p',title:'t',taskId:1,description:'d',dueDate:1,priority:1},
-                {project:'p',title:'t1',taskId:2,description:'d',dueDate:1,priority:1},
-                {project:'default',title:'t2',taskId:3,description:'d',dueDate:1,priority:1}];
-function Task (project,title, description,dueDate,priority){
+let taskId = 3;
+const tasks = [{project:'p',projectId:1,title:'tkfjsfskffkkkfkjfkjkejreajrraerrkjerjkajkrkjrrjar',taskId:0,description:'d',dueDate:1,priority:1,status:1},
+                {project:'default',projectId:0,title:'t1',taskId:1,description:'d',dueDate:1,priority:1,status:1},
+                {project:'default',projectId:0,title:'t2',taskId:2,description:'d',dueDate:1,priority:1,status:0}];
+function Task (project,projectId,title, description,dueDate,priority,status){
     this.project = project,
+    this.projectId = projectId,
     this.title = title,
     this.taskId = taskId,
     this.description = description,
     this.dueDate = dueDate,
     this.priority = priority,
+    this.status = status,
     taskId++;
 }
 
-function addTask(project,title, description,dueDate,priority){
-    const newTask = new Task(project,title, description,dueDate,priority);
+function addTask(project,projectId,title, description,dueDate,priority,status){
+    const newTask = new Task(project,projectId,title, description,dueDate,priority,status);
     tasks.push(newTask);
     return newTask.taskId;
 }
 
-function viewTask(projectName){
+function viewTask(projectId){
     let taskList = [];
     for(let i=0;i<tasks.length;i++){
-        if(tasks[i].project===projectName){
+        if(tasks[i].projectId==projectId){
             taskList.push(tasks[i]);
         }
     }
     return taskList;
 }
 
-function deleteTask(taskId){
-    
+function deleteTask(taskId,projectId){
+    let taskIndex = findTaskIndex(taskId);
+    tasks.splice(taskIndex,1);
+    return viewTask(projectId);
+}
+
+function findTaskIndex(taskId){
+    for(let i=0;i<tasks.length;i++){
+        if(tasks[i].taskId==taskId){
+            return i;
+        }
+    }
+}
+
+function toggleTaskStatus(taskId){
+    let index = findTaskIndex(taskId);
+    tasks[index].status =  Number(!(tasks[index].status));
+    return;
+}
+
+//TODO
+function deleteAllTasksInProject(projectId){
+    // for(let i=0;i<)
 }
 // export default tasks;
-module.exports = {addTask, viewTask, tasks}
+module.exports = {tasks, addTask, viewTask, deleteTask, deleteAllTasksInProject,findTaskIndex,toggleTaskStatus}

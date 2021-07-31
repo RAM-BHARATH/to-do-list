@@ -52,7 +52,7 @@ const Navbar = () =>{
         const aInLi2 = document.createElement('a');
         aInLi2.classList.add('nav-link','dropdown-toggle');
         aInLi2.href='#';
-        aInLi2.id="navbarDropdown";
+        aInLi2.id="projects";
         aInLi2.setAttribute("role","button");
         aInLi2.setAttribute("data-toggle","dropdown");
         aInLi2.setAttribute("aria-haspopup","true");
