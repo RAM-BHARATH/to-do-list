@@ -14,7 +14,7 @@ function createElement(tagName, attrs = {}, ...children) {
 
 const Header = createElement("div", {
   id: "header"
-}, createElement("h1", null, "ToDo List 2"), createElement("div", {
+}, createElement("h1", null, "ToDo List"), createElement("div", {
   className: "menu-icon",
   id: "add-task-toggler"
 }, createElement("abbr", {

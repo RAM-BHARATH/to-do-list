@@ -13,7 +13,7 @@ function createElement(tagName, attrs = {}, ...children) {
 
 const Header = (
   <div id='header'>
-    <h1>ToDo List 2</h1>
+    <h1>ToDo List</h1>
     <div className='menu-icon' id='add-task-toggler'>
       <abbr title="Create New Task">
         <img src='../assets/plus.svg'/>
