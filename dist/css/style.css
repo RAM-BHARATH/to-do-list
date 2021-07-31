@@ -96,7 +96,7 @@ h1{
     display: block;
     color:#fff;
     position: fixed;
-    /* right:-500px; */
+    right:-500px;
     top:0px;
     transition:1000ms;
     z-index:5;

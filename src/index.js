@@ -66,7 +66,17 @@ function initializer(){
     const side_view = document.getElementById('side-view');
 
     const menuIcon = document.getElementById('menu-icon');
-    menuIcon.addEventListener('click',toggleSideBar);
+    menuIcon.addEventListener('click',function(){
+        console.log('==='+side_view.style.right+'==='+side_view.style.top);
+        if(side_view.style.right=='0px'){
+            side_view.style.right='-500px';
+        }
+        else{
+            side_view.style.right='0px';
+        }
+        console.log('Menu Button clicked');
+        return;
+    });
 
     const createProjectButton = document.getElementById('create-project-button');
     createProjectButton.addEventListener('click',function(){
@@ -139,7 +149,7 @@ addTaskButton.addEventListener('click',function(){
     toggleCreateTaskBox();
 });
 
-menuIcon.addEventListener('click',toggleSideBar);
+// menuIcon.addEventListener('click',toggleSideBar);
 // homeMenuItem.addEventListener('click',function(){
 //     initializer();
 //     // toggleSideBar();
@@ -155,10 +165,10 @@ taskCreateBoxToggler.addEventListener('click',function(){
     // console.log("Create Task Button clicked");
     toggleCreateTaskBox();
 });
-createProjectButton.addEventListener('click',function(){
-    // console.log("Create Project Button clicked");
-    toggleCreateProjectBox();
-});
+// createProjectButton.addEventListener('click',function(){
+//     // console.log("Create Project Button clicked");
+//     toggleCreateProjectBox();
+// });
 function toggleCreateTaskBox(){
     // console.log('==='+createTaskBox.style.right+'==='+createTaskBox.style.top);
     if(createTaskBox.style.top!=='0px'){
@@ -169,23 +179,25 @@ function toggleCreateTaskBox(){
     return;
 }
 function toggleCreateProjectBox(){
+    console.log('Create project clicked');
     if(createProjectBox.style.right==='0px'){
         createProjectBox.style.right='-500px';
     }else{
         createProjectBox.style.right='0px';
     }
-}
-function toggleSideBar(){
-    console.log('==='+side_view.style.right+'==='+side_view.style.top);
-    if(side_view.style.right=='0px'){
-        side_view.style.right='-500px';
-    }
-    else{
-        side_view.style.right='0px';
-    }
-    console.log('Menu Button clicked');
     return;
 }
+// function toggleSideBar(side_view){
+//     console.log('==='+side_view.style.right+'==='+side_view.style.top);
+//     if(side_view.style.right=='0px'|| !side_view.style.right){
+//         side_view.style.right='-500px';
+//     }
+//     else{
+//         side_view.style.right='0px';
+//     }
+//     console.log('Menu Button clicked');
+//     return;
+// }
 
 function clearCreateTaskBox(){
     title.value='';
