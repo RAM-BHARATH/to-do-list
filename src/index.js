@@ -1,12 +1,13 @@
-import { addProject } from './Project';
-import { addTask, deleteTask, viewTask, toggleTaskStatus } from './Task';
+import { addProject,updateProjectsInStorage } from './Project';
+import { addTask, deleteTask, viewTask, toggleTaskStatus, updateTasksInStorage } from './Task';
 import { taskBox } from './Template';
 import { Header, SideView, TaskBox, HomeView, taskCard, fillTasks,tasksInTaskBox,loopThroughProjects } from './Template';
 import { createProjectBox,createTaskBox } from './Template';
 // import {Navbar} from './TemplateForBootstrap';
 // import tasks from './Task';
-let currentProject = '';
+let currentProject = 'default';
 let currentProjectId=0;
+
 const content = document.getElementById('content');
 
 // const projectChoice = document.getElementById('')
@@ -27,6 +28,7 @@ function initializer(){
             let taskToBeDeleted = deleteButtonList[i].parentNode.id;
             // console.log(`Delete button ${taskToBeDeleted} clicked`);
             deleteTask(taskToBeDeleted,currentProjectId);
+            updateTasksInStorage();
             console.log(viewTask(currentProjectId));
             initializer();
         });
@@ -40,6 +42,7 @@ function initializer(){
             let changeTaskStatus = statusToggleButtons[i].parentNode.id;
             toggleTaskStatus(changeTaskStatus);
             console.log(viewTask(currentProjectId));
+            updateTasksInStorage();
             initializer();
         });
     }
@@ -133,6 +136,7 @@ addProjectButton.addEventListener('click',function(){
         // loopThroughProjects();
         initializer();
     }
+    updateProjectsInStorage();
     toggleCreateProjectBox();
 });
 
@@ -146,6 +150,7 @@ addTaskButton.addEventListener('click',function(){
         initializer();
         clearCreateTaskBox();
     }
+    updateTasksInStorage();
     toggleCreateTaskBox();
 });
 
@@ -218,4 +223,4 @@ console.log(menuIcon);
 // function setCurrentProject(){
 
 // }
-console.log("Current proejct ID: "+currentProjectId);
+console.log("Current project ID: "+currentProjectId);

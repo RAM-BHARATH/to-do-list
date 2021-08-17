@@ -1,12 +1,23 @@
 const taskLib = require('./Task');
-let currentProjectId = 2;
-const projects = [{project:'default' ,projectId:0}]; //,{project:'p' ,projectId:1}
+let projects = [{project:'default' ,projectId:0}]; //,{project:'p' ,projectId:1}
+let currentProjectId = 0;
+
+if(JSON.parse(localStorage.getItem('projectsInStorage'))==null){
+    localStorage.setItem('projectsInStorage',JSON.stringify(projects));
+    console.log(1+": Project item not available so far");
+  }
+else{
+    projects = JSON.parse(localStorage.getItem('projectsInStorage'));
+    currentProjectId = projects[projects.length-1].projectId;
+    console.log("Current project id: "+currentProjectId);
+    console.log(2+": We have project item already!");
+}
 
 // currentProjectId++;
 function Project(projectName){
     this.project = projectName;
-    this.projectId = currentProjectId;
     currentProjectId++;
+    this.projectId = currentProjectId;
 }
 function searchForProject(projectName){
     for(let i=0;i<projects.length;i++){
@@ -38,6 +49,11 @@ function deleteProject(projectName,projectId){
 function viewProjects(){
     return projects;
 }
+
+function updateProjectsInStorage(){
+    localStorage.setItem('projectsInStorage',JSON.stringify(projects));
+    return;
+}
 // export default projects;
-module.exports = {searchForProject, addProject, deleteProject,viewProjects , projects};
+module.exports = {updateProjectsInStorage, searchForProject, addProject, deleteProject,viewProjects , projects};
 
